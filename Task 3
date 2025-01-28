@@ -1,0 +1,36 @@
+if (account.withdraw(amount)) {
+                System.out.println("Transaction successful. Please collect your cash.");
+            } else {
+                System.out.println("Transaction failed. Insufficient balance or invalid amount.");
+            }
+        }
+
+        // Handle deposit option
+        private void handleDeposit(Scanner scanner) {
+            System.out.print("Enter the amount to deposit: ");
+            double amount = scanner.nextDouble();
+            if (account.deposit(amount)) {
+                System.out.println("Transaction successful. Your amount has been deposited.");
+            } else {
+                System.out.println("Transaction failed. Invalid amount.");
+            }
+        }
+
+        // Display the account balance
+        private void displayBalance() {
+            System.out.println("Current balance: $" + account.getBalance());
+        }
+    }
+
+    // Main method to run the program
+    public static void main(String[] args) {
+        // Create a bank account with an initial balance
+        BankAccount account = new BankAccount("John Doe", 1000.0);
+
+        // Create an ATM instance and pass the bank account
+        ATM atm = new ATM(account);
+
+        // Show the ATM menu
+        atm.showMenu();
+    }
+}
